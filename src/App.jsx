@@ -56,7 +56,7 @@ function App() {
         { /* SEARCH BAR */}
         <div style={{ width: '60%', zIndex: 2 }}>
           <InputGroup size='lg' className='mb-3'>
-            <Input placeholder='Book Search' value={query} onChange={e => setQuery(e.target.value)} />
+            <Input placeholder='Palavras-chave' value={query} onChange={e => setQuery(e.target.value)} />
             <Button color='secondary' onClick={handleSubmit}>
               <i className='fas fa-search'></i>
             </Button>
@@ -64,11 +64,11 @@ function App() {
           <div className="d-flex text-white justify-content-center">
             { /* PAGE INDEX */}
             <FormGroup className='ml-5'>
-              <Label for='maxResults'>Max Results </Label>
+              <Label for='maxResults'>Qtd Resultados: </Label>
               <Input type='number' id='maxResults' placeholder='Max Results' value={maxResults} onChange={e => setMaxResults(e.target.value)} />
             </FormGroup>
             <FormGroup className='ml-5'>
-              <Label for='startIndex'>Start Index </Label>
+              <Label for='startIndex'>Começar do: </Label>
               <Input type='number' id='startIndex' placeholder='Start Index' value={startIndex} onChange={e => setStartIndex(e.target.value)} />
             </FormGroup>
           </div>
@@ -87,7 +87,15 @@ function App() {
 
       return (
         <div className="col-lg-4" key={item.id}>
-          <BookCard thumbnail={thumbnail} title={item.volumeInfo.title} />
+          <BookCard thumbnail={thumbnail}
+            title={item.volumeInfo.title}
+            pageCount={item.volumeInfo.pageCount}
+            language={item.volumeInfo.language}
+            authors={item.volumeInfo.authors}
+            publisher={item.volumeInfo.publisher}
+            description={item.volumeInfo.description}
+            previewLink={item.volumeInfo.previewLink}
+            infoLink={item.volumeInfo.infoLink} />
         </div>
       )
 
