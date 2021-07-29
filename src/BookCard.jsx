@@ -22,7 +22,7 @@ const BookCard = ({ thumbnail, title, pageCount, language, description, authors,
                     </button>
                 </div>
                 <div className='modal-body'>
-                    <div className='d-flex justify-content-between'>
+                    <div className='d-flex justify-content-between ml-3'>
                         <img src={thumbnail} alt={title} style={{ height: '233px' }} />
                         <div>
                             <p>Páginas: {pageCount}</p>
