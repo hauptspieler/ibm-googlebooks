@@ -9,7 +9,7 @@ const BookCard = ({ thumbnail, title, pageCount, language, description, authors,
     const toggle = () => setModal(!modal)
     return (
         <Card style={{ width: '233px' }} className='m-auto'>
-            <CardImg top style={{ width: '100%', height: '233px' }} src={thumbnail} alt='card image' />
+            <CardImg top style={{ width: '100%', height: '233px' }} src={thumbnail} alt={title} />
             <CardBody>
                 <CardTitle className='card-title'>{title}</CardTitle>
                 <Button onClick={toggle}>Ver detalhes </Button>
@@ -20,6 +20,18 @@ const BookCard = ({ thumbnail, title, pageCount, language, description, authors,
                     <button aria-label='Close' className='close' type='button' onClick={toggle}>
                         <span aria-hidden={true}>X</span>
                     </button>
+                </div>
+                <div className='modal-body'>
+                    <div className='d-flex justify-content-between'>
+                        <img src={thumbnail} alt={title} style={{ height: '233px' }} />
+                        <div>
+                            <p>Páginas: {pageCount}</p>
+                            <p>Idioma: {language}</p>
+                            <p>Autores: {authors}</p>
+                            <p>Editora: {publisher}</p>
+                        </div>
+                    </div>
+                    <div className='mt-3'>{description}</div>
                 </div>
             </Modal>
         </Card>
